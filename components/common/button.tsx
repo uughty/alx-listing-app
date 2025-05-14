@@ -1,17 +1,25 @@
-import React from 'react';
-import { ButtonProps } from '../../interfaces';
+// components/common/Card.tsx
 
-const Button: React.FC<ButtonProps> = ({ label, onClick, type = 'button' }) => {
+import React from 'react';
+
+export interface CardProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+const Card: React.FC<CardProps> = ({ title, description, imageUrl }) => {
   return (
-    <button
-      type={type}
-      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-      onClick={onClick}
-    >
-      {label}
-    </button>
+    <div className="bg-white shadow-md rounded-lg overflow-hidden">
+      <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
+      <div className="p-4">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <p className="text-gray-600">{description}</p>
+      </div>
+    </div>
   );
 };
 
-export default Button;
+export default Card;
+
 

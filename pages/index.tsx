@@ -10,7 +10,11 @@ export default function Home() {
       </Head>
       <main className="p-6">
         <h1 className="text-3xl font-bold mb-4">Welcome to ALX Listing App</h1>
-        <Card title="Sample Property" description="A beautiful property in the city." />
+        <Card
+          title="Sample Property"
+          description="A beautiful property in the city."
+          imageUrl="/assets/placeholder.jpg"
+        />
         <div className="mt-4">
           <Button label="Book Now" onClick={() => alert('Booking...')} />
         </div>
