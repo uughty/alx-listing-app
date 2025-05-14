@@ -1,25 +1,31 @@
-// components/common/Card.tsx
+// components/common/Button.tsx
 
 import React from 'react';
 
-export interface CardProps {
-  title: string;
-  description: string;
-  imageUrl: string;
+export interface ButtonProps {
+  label: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imageUrl }) => {
+const Button: React.FC<ButtonProps> = ({
+  label,
+  onClick,
+  disabled = false,
+  className = '',
+}) => {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden">
-      <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h2 className="text-lg font-semibold">{title}</h2>
-        <p className="text-gray-600">{description}</p>
-      </div>
-    </div>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 ${className}`}
+    >
+      {label}
+    </button>
   );
 };
 
-export default Card;
+export default Button;
 
 
